@@ -9,15 +9,13 @@ public class Contest {
         this.animal2 = animal2;
     }
 
-    //Har problemer med at display ned til de faktisk dør?
-
     public void playRound() {
         int roundCount = 1;
         while (getWinner() == null) {
             System.out.println("--- Round " + roundCount + " ---");
             animal2.loseEnergy(animal1.attack());
             System.out.println(animal1.getName() + " angriber " + animal2.getName() + " for " + animal1.attack() + " (" + animal2.getName() + " har " + animal2.getEnergy() + " energi tilbage!)");
-            animal2.loseEnergy(animal2.attack());
+            animal1.loseEnergy(animal2.attack());
             System.out.println(animal2.getName() + " angriber " + animal1.getName() + " for " + animal2.attack() + " (" + animal1.getName() + " har " + animal1.getEnergy() + " energi tilbage!)");
             roundCount++;
         }
